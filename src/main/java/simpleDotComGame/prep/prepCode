@@ -1,0 +1,47 @@
+GOAL
+1. Sink the computer ships in the fewest number of guess, got the rating or level on how well you perform,
+
+SETUP
+1. Computer placed 3 DotComs on virtual 7 x 7 grid.
+    (2 Dimension) -> (1 Dimension) [1 x 7] => area[7] => [0,1,2,3,4,5,6]
+    DotCom dotCom = new DotCom(1,2,3)
+    BattleField battleField = new BattleField() | area => [0,0,0,0,0,0,0]
+    battleField.addDotCom(dotCom)
+        battleField area => [0,1,1,1,0,0,0]
+
+2. Ask player to guess.
+    prompt to player
+
+HOW TO PLAY
+1. Computer prompt to enter guess.
+    Prompt to player
+2. Player guess a cell.
+    playerGuessedPosition = 1
+3. Player will got response "Hit", "Miss", "You sunk [DotCom.name]".
+    battleField.hit(playerGuessedPosition)
+        if area[1] == 1 =>(response "Hit") area[1] = 0
+                DotCom at that position become sunk dotCom.hit(position)
+                    DotCom position that got hit changed to -1 => positions[-1,2,3]
+                    check if all position is -1 => isSink is true then (response "You sunk DotCom.name")
+        if area[1] == 0 =>(response "Miss")
+4. If all DotComs is gone the game end.
+    battleField.isDotComExist()
+    check all DotCom if all isSink return false else true
+
+Class Diagram
+
+BattleField
+==========
+int[] area
+DotCom[] dotComs
+==========
+addDotCom(dotCom)
+check(playerGuessedPosition)
+isDotComExist()
+
+DotCom
+String name
+int[] positions
+boolean isSink
+==========
+hit(position)

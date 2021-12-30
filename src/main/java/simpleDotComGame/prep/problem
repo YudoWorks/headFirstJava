@@ -1,0 +1,12 @@
+GOAL
+1. Sink the computer ships in the fewest number of guess, got the rating or level on how well you perform,
+
+SETUP
+1. Computer placed 3 DotComs on virtual 7 x 7 grid. (How the DotCom got placed?)
+2. Ask player to guess.
+
+HOW TO PLAY
+1. Computer prompt to enter guess.
+2. Player guess a cell.
+3. Player will got response "Hit", "Miss", "You sunk [DotComName]".
+4. If all DotComs is gone the game end.
